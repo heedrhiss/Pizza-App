@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# A Pizza WebApp currently under production with React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
