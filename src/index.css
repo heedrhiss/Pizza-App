@@ -165,7 +165,7 @@ body {
 }
 
 .btn {
-  color: inherit;
+  color: #00000;
   font-family: inherit;
   margin-top: 15px;
   border: none;
@@ -179,7 +179,7 @@ body {
 
 .btn:hover {
   background-color: #e9bb24;
-  color: #fff;
+  color: #ffff;
 }
 
 /*

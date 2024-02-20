@@ -12,7 +12,7 @@ const data = [
   {
     name: "Focaccia",
     ingredients: "Bread with italian olive oil and rosemary",
-    price: 6,
+    price: 7,
     photoName: "pizzas/focaccia.jpg",
     soldOut: false,
   },
@@ -86,10 +86,12 @@ function Menu() {
       <div className="pizzas">
         {data.map((pizza) => (
           <Pizza
+            key={pizza.name}
             name={pizza.name}
             desc={pizza.ingredients}
             photo={pizza.photoName}
             price={pizza.price}
+            status={pizza.soldOut}
           />
         ))}
       </div>
