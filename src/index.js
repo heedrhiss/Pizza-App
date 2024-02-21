@@ -58,8 +58,6 @@ const closeHour = 22;
 const isOpen = openHour <= closeHour ? true : false;
 const pizzaData = data;
 
-// console.log(data);
-
 function App() {
   return (
     <div>
@@ -79,37 +77,40 @@ function Header() {
 }
 
 function Menu() {
-  const pizzaData = data;
   return (
     <main className="menu">
       <h2>OUR MENU</h2>
+      <p>
+        Authentic Italian cuisine. 6 creative dishes to choose from. All from
+        our stone oven, all organic, all delicious.
+      </p>
+
       <div className="pizzas">
         {data.map((pizza) => (
-          <Pizza
-            key={pizza.name}
-            name={pizza.name}
-            desc={pizza.ingredients}
-            photo={pizza.photoName}
-            price={pizza.price}
-            status={pizza.soldOut}
-          />
+          <Pizza pizzaObj={pizza} key={pizza.name} />
         ))}
       </div>
     </main>
   );
 }
 
-function Pizza(props) {
+function Pizza({ pizzaObj }) {
   return (
-    <div className="pizza">
-      <div>
-        <img src={props.photo} alt="{props.alt}" />
-      </div>
-      <div>
-        <h3>{props.name}</h3>
-        <p>{props.desc}</p>
-        <h3>${props.price}</h3>
-      </div>
+    <div className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      {pizzaData ? (
+        <>
+          <div>
+            <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+          </div>
+          <div>
+            <h3>{pizzaObj.name}</h3>
+            <p>{pizzaObj.ingredients}</p>
+            <span>{pizzaObj.soldOut ? "SOLD OUT" : `$${pizzaObj.price}`}</span>
+          </div>
+        </>
+      ) : (
+        <p>No Pizza Available</p>
+      )}
     </div>
   );
 }
